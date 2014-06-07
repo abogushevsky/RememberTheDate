@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RDCell.h"
 
 @interface RDGameModel : NSObject
 
 @property (nonatomic, readonly) NSString *question;
 @property (nonatomic, readonly) NSString *answer;
+@property (nonatomic, readonly) NSArray *gameCells;
 
 @end

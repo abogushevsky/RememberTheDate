@@ -10,4 +10,8 @@
 
 @implementation RDGameModel
 
+@synthesize question = _question;
+@synthesize answer = _answer;
+@synthesize gameCells = _gameCells;
+
 @end
