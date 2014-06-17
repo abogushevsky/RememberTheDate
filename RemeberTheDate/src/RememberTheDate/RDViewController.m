@@ -7,17 +7,32 @@
 //
 
 #import "RDViewController.h"
+#import "RDGameModel.h"
 
 @interface RDViewController ()
+
+@property (nonatomic, strong) RDGameModel *gameModel;
 
 @end
 
 @implementation RDViewController
 
+-(RDGameModel *) gameModel
+{
+    if(!_gameModel) {
+        _gameModel = [[RDGameModel alloc] init];
+    }
+    
+    return _gameModel;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.lblAnswer.text = self.gameModel.answer;
+    self.lblQuestion.text = self.gameModel.question;
 }
 
 - (void)didReceiveMemoryWarning
