@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblQuestion;
 @property (weak, nonatomic) IBOutlet UILabel *lblAnswer;
 
+- (IBAction)nextQuestion:(UIButton *)sender;
+
 @end

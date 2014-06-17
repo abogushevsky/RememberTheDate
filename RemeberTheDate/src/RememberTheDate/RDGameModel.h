@@ -15,4 +15,6 @@
 @property (nonatomic, readonly) NSString *answer;
 @property (nonatomic, readonly) NSArray *gameCells;
 
+-(instancetype) initWithQuestionId: (NSInteger) questionId;
+
 @end

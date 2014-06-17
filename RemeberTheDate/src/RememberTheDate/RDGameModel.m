@@ -26,4 +26,13 @@
     return self;
 }
 
+-(instancetype) initWithQuestionId: (NSInteger) questionId
+{
+    self = [self init];
+    
+    NSLog(@"Init with question Id %ld", questionId);
+    
+    return self;
+}
+
 @end

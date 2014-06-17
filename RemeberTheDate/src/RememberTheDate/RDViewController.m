@@ -9,6 +9,8 @@
 #import "RDViewController.h"
 #import "RDGameModel.h"
 
+int i = 0;
+
 @interface RDViewController ()
 
 @property (nonatomic, strong) RDGameModel *gameModel;
@@ -39,6 +41,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)nextQuestion:(UIButton *)sender
+{
+    _gameModel = [[RDGameModel alloc] initWithQuestionId: i];
+    i++;
 }
 
 @end
