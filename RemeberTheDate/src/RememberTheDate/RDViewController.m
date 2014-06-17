@@ -9,8 +9,6 @@
 #import "RDViewController.h"
 #import "RDGameModel.h"
 
-int i = 0;
-
 @interface RDViewController ()
 
 @property (nonatomic, strong) RDGameModel *gameModel;
@@ -45,8 +43,7 @@ int i = 0;
 
 - (IBAction)nextQuestion:(UIButton *)sender
 {
-    _gameModel = [[RDGameModel alloc] initWithQuestionId: i];
-    i++;
+    _gameModel = [[RDGameModel alloc] initWithQuestionId: 0];
 }
 
 @end
