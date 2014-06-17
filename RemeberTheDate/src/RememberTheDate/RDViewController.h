@@ -10,4 +10,7 @@
 
 @interface RDViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *lblQuestion;
+@property (weak, nonatomic) IBOutlet UILabel *lblAnswer;
+
 @end
