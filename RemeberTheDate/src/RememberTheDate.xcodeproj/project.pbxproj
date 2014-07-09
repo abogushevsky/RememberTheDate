@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CCF3445196DBEAD00D964D3 /* RDFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCF3444196DBEAD00D964D3 /* RDFieldView.m */; };
 		2CE6485B194DCA2E00ED6DBD /* RDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6485A194DCA2E00ED6DBD /* RDMenuViewController.m */; };
 		E6DAB3771943482100B16FB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6DAB3761943482100B16FB9 /* Foundation.framework */; };
 		E6DAB3791943482100B16FB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6DAB3781943482100B16FB9 /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2CCF3443196DBEAD00D964D3 /* RDFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDFieldView.h; sourceTree = "<group>"; };
+		2CCF3444196DBEAD00D964D3 /* RDFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDFieldView.m; sourceTree = "<group>"; };
 		2CE64859194DCA2E00ED6DBD /* RDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDMenuViewController.h; sourceTree = "<group>"; };
 		2CE6485A194DCA2E00ED6DBD /* RDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDMenuViewController.m; sourceTree = "<group>"; };
 		E6DAB3731943482100B16FB9 /* RememberTheDate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberTheDate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +137,8 @@
 				E6DAB37D1943482100B16FB9 /* Supporting Files */,
 				2CE64859194DCA2E00ED6DBD /* RDMenuViewController.h */,
 				2CE6485A194DCA2E00ED6DBD /* RDMenuViewController.m */,
+				2CCF3443196DBEAD00D964D3 /* RDFieldView.h */,
+				2CCF3444196DBEAD00D964D3 /* RDFieldView.m */,
 			);
 			path = RememberTheDate;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6DAB3871943482100B16FB9 /* RDAppDelegate.m in Sources */,
+				2CCF3445196DBEAD00D964D3 /* RDFieldView.m in Sources */,
 				E6DAB3B019434B0A00B16FB9 /* RDGameModel.m in Sources */,
 				E6DAB3831943482100B16FB9 /* main.m in Sources */,
 				E6DAB3B419434E8800B16FB9 /* RDCell.m in Sources */,
