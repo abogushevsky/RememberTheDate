@@ -124,6 +124,9 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cellClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bRE-5Z-ieZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzR-Os-UNT">
                                 <rect key="frame" x="210" y="346" width="90" height="90"/>
@@ -152,6 +155,7 @@
                     <connections>
                         <outlet property="lblAnswer" destination="s2R-BJ-RvM" id="l3X-K9-Cit"/>
                         <outlet property="lblQuestion" destination="jHU-cO-RBF" id="mba-sq-dW6"/>
+                        <outletCollection property="cellButtons" destination="lka-OV-fUv" id="ttv-f5-bL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

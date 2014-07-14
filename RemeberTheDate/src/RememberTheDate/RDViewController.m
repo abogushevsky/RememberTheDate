@@ -11,6 +11,8 @@
 
 @interface RDViewController ()
 
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cellButtons;
+
 @property (nonatomic, strong) RDGameModel *gameModel;
 
 @end
@@ -44,6 +46,14 @@
 - (IBAction)nextQuestion:(UIButton *)sender
 {
     _gameModel = [[RDGameModel alloc] initWithQuestionId: 0];
+    
+    for(int i = 0; i < _gameModel.gameCells.count; i++) {
+        //нужен либо двумерный массив, либо ячейки в модели должны быть отсортированы
+    }
+}
+
+- (IBAction)cellClick:(UIButton *)sender
+{
 }
 
 @end
