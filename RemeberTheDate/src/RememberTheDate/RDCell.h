@@ -17,5 +17,7 @@
 
 -(BOOL) canMoveTo:(int) x and:(int)y;
 -(BOOL) moveTo:(int)x and:(int)y;
+-(instancetype) initWithValue:(NSString*)value atX:(int)x andY:(int)y;
+-(instancetype) initEmptyAt:(int)x And:(int)y;
 
 @end
