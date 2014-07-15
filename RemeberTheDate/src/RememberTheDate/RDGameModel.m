@@ -35,7 +35,6 @@
     _question = @"Дата начала Великой Отечественной Войны";
     _answer = @"22.06.1941";
     _gameCells = [NSArray arrayWithObjects:
-                  [[RDCell alloc] initEmptyAt:0 And:0],
                   [[RDCell alloc] initWithValue:@"2" atX:1 andY:0],
                   [[RDCell alloc] initWithValue:@"2" atX:2 andY:0],
                   [[RDCell alloc] initWithValue:@"0" atX:0 andY:1],

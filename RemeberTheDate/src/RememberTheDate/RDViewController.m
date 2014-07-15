@@ -73,9 +73,14 @@ const int BUTTON_SIZE = 90;
 -(RDCellButton *) createButtonForCell: (RDCell *) cell
 {
     RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
-    button.frame = CGRectMake(10 + (90 * cell.x) + 10, 250 + (90 + cell.y) + 10, BUTTON_SIZE, BUTTON_SIZE);
+    int additionalX = cell.x == 0 ? 0 : 5;
+    int additionalY = cell.y == 0 ? 0 : 5;
+    int buttonX = ((90 + additionalX) * cell.x) + 20;
+    int buttonY = 255 + ((90 + additionalY) * cell.y);
+    button.frame = CGRectMake(buttonX, buttonY, BUTTON_SIZE, BUTTON_SIZE);
     button.value = cell.value;
-    button.backgroundColor = [UIColor redColor];
+//    button.backgroundColor = [UIColor colorWithRed:144 green:169 blue: 212 alpha:255];
+    [button setBackgroundColor:[UIColor colorWithHue:218 saturation:32 brightness:83 alpha:1]];
     button.x = 0;
     button.y = 0;
     
