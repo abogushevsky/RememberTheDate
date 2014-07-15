@@ -13,7 +13,7 @@
 @interface RDViewController ()
 
 @property (nonatomic, strong) RDGameModel *gameModel;
-@property (nonatomic, strong) NSMutableArray *
+@property (nonatomic, strong) NSMutableArray *cellButtons;
 
 @end
 
@@ -37,6 +37,7 @@ const int BUTTON_SIZE = 90;
     
     self.lblAnswer.text = self.gameModel.answer;
     self.lblQuestion.text = self.gameModel.question;
+    self.cellButtons = [NSMutableArray arrayWithCapacity:9]; //there are always 9 non-empty cells
     
     int buttonSize = 90;
     RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
