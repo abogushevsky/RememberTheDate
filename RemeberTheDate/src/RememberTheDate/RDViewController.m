@@ -38,15 +38,7 @@ const int BUTTON_SIZE = 90;
     self.lblAnswer.text = self.gameModel.answer;
     self.lblQuestion.text = self.gameModel.question;
     self.cellButtons = [NSMutableArray arrayWithCapacity:9]; //there are always 9 non-empty cells
-    
-    int buttonSize = 90;
-    RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
-    button.frame = CGRectMake(20, 260, buttonSize, buttonSize);
-    button.value = @"0";
-    button.backgroundColor = [UIColor redColor];
-    button.x = 0;
-    button.y = 0;
-    [self.view addSubview:button];
+    [self nextQuestion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,16 +51,30 @@ const int BUTTON_SIZE = 90;
 {
     _gameModel = [[RDGameModel alloc] initWithQuestionId: 0];
     
-    for(int i = 0; i < _gameModel.gameCells.count; i++) {
-        //нужен либо двумерный массив, либо ячейки в модели должны быть отсортированы
+    [self generateButtonsByModel];
+}
+
+-(void) generateButtonsByModel
+{
+    [self clearCurrentButtons];
+    
+    for(int i = 0; i < self.gameModel.gameCells.count; i++) {
+        RDCellButton *button = [self createButtonForCell:self.gameModel.gameCells[i]];
+        [self.view addSubview:button];
+        [self.cellButtons addObject:button];
     }
+}
+
+-(void) clearCurrentButtons
+{
+    
 }
 
 -(RDCellButton *) createButtonForCell: (RDCell *) cell
 {
     RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
-    button.frame = CGRectMake(10 * (cell.x + 1) + 10, 250 * (cell.y + 1) + 10, BUTTON_SIZE, BUTTON_SIZE);
-    button.value = @"0";
+    button.frame = CGRectMake(10 + (90 * cell.x) + 10, 250 + (90 + cell.y) + 10, BUTTON_SIZE, BUTTON_SIZE);
+    button.value = cell.value;
     button.backgroundColor = [UIColor redColor];
     button.x = 0;
     button.y = 0;
