@@ -8,16 +8,18 @@
 
 #import "RDViewController.h"
 #import "RDGameModel.h"
+#import "RDCellButton.h"
 
 @interface RDViewController ()
 
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cellButtons;
-
 @property (nonatomic, strong) RDGameModel *gameModel;
+@property (nonatomic, strong) NSMutableArray *
 
 @end
 
 @implementation RDViewController
+
+const int BUTTON_SIZE = 90;
 
 -(RDGameModel *) gameModel
 {
@@ -35,6 +37,15 @@
     
     self.lblAnswer.text = self.gameModel.answer;
     self.lblQuestion.text = self.gameModel.question;
+    
+    int buttonSize = 90;
+    RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
+    button.frame = CGRectMake(20, 260, buttonSize, buttonSize);
+    button.value = @"0";
+    button.backgroundColor = [UIColor redColor];
+    button.x = 0;
+    button.y = 0;
+    [self.view addSubview:button];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,8 +63,16 @@
     }
 }
 
-- (IBAction)cellClick:(UIButton *)sender
+-(RDCellButton *) createButtonForCell: (RDCell *) cell
 {
+    RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
+    button.frame = CGRectMake(10 * (cell.x + 1) + 10, 250 * (cell.y + 1) + 10, BUTTON_SIZE, BUTTON_SIZE);
+    button.value = @"0";
+    button.backgroundColor = [UIColor redColor];
+    button.x = 0;
+    button.y = 0;
+    
+    return button;
 }
 
 @end

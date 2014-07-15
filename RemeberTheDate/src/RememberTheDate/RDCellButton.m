@@ -21,7 +21,7 @@
 
 -(void) setValue: (NSString *) 	newValue
 {
-    self.value = newValue;
+    [self setTitle:newValue forState:UIControlStateNormal];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -30,6 +30,7 @@
     if (self) {
         // Initialization code
     }
+    
     return self;
 }
 
