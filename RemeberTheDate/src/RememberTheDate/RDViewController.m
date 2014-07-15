@@ -39,12 +39,19 @@ const int BUTTON_SIZE = 90;
     self.lblQuestion.text = self.gameModel.question;
     self.cellButtons = [NSMutableArray arrayWithCapacity:9]; //there are always 9 non-empty cells
     [self nextQuestion:nil];
+    self.lblQuestion.text = self.gameModel.question;
+    self.lblAnswer.text = self.gameModel.answer;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) cellButtonClick: (RDCellButton *) sender
+{
+    NSLog(@"Button pressed: %@", sender.value);
 }
 
 - (IBAction)nextQuestion:(UIButton *)sender
@@ -61,6 +68,7 @@ const int BUTTON_SIZE = 90;
     for(int i = 0; i < self.gameModel.gameCells.count; i++) {
         RDCellButton *button = [self createButtonForCell:self.gameModel.gameCells[i]];
         [self.view addSubview:button];
+        [button addTarget:self action:@selector(cellButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.cellButtons addObject:button];
     }
 }
