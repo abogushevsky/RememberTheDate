@@ -87,9 +87,7 @@ const int BUTTON_SIZE = 90;
     int buttonY = 255 + ((90 + additionalY) * cell.y);
     button.frame = CGRectMake(buttonX, buttonY, BUTTON_SIZE, BUTTON_SIZE);
     button.value = cell.value;
-//    button.backgroundColor = [UIColor colorWithRed:144 green:169 blue: 212 alpha:255];
-    //[button setBackgroundColor:[UIColor colorWithHue:218 saturation:32 brightness:83 alpha:1]];
-    [button setBackgroundColor:[UIColor blueColor]];
+    [button setBackgroundColor:[UIColor colorWithRed:168.0f/255.0f green:199.0f/255.0f blue:240.0f/255.0f alpha:1]];
     button.x = 0;
     button.y = 0;
     
