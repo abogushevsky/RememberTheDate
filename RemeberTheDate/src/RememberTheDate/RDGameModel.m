@@ -13,6 +13,7 @@
 @synthesize question = _question;
 @synthesize answer = _answer;
 @synthesize gameCells = _gameCells;
+@synthesize emptyCell = _emptyCell;
 
 -(instancetype) init
 {
@@ -46,8 +47,26 @@
                   [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:1 andY:2],
                   [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:2 andY:2],
                   nil];
+    _emptyCell = [[RDCell alloc] initEmptyAt:0 And:0];
     
     return self;
+}
+
+-(RDCell *) moveCellFromX:(int)x y:(int)y
+{
+    RDCell *movedCell;
+    for(int i = 0; i < self.gameCells.count; i++){
+        movedCell = self.gameCells[i];
+        if(movedCell.x == x && movedCell.y == y){
+            if([self canMoveCell:movedCell toX:self.emptyCell.x y:self.emptyCell.y]){
+                [movedCell moveTo:self.emptyCell.x and:self.emptyCell.y];
+                [self.emptyCell moveTo:x and:y];
+                break;
+            }
+        }
+    }
+    
+    return movedCell;
 }
 
 -(NSString *) getRandomDatePartFromPartsArray: (NSMutableArray *)array
@@ -56,6 +75,11 @@
     NSString *result = (NSString*)[array objectAtIndex:rnd];
     [array removeObjectAtIndex:rnd];
     return result;
+}
+
+-(BOOL) canMoveCell:(RDCell*)cell toX:(int)x y:(int)y
+{
+    return (cell.x == x && abs(cell.y - y) <= 1) || (cell.y == y && abs(cell.x - x) <= 1);
 }
 
 @end

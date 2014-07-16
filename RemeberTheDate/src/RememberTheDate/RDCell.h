@@ -15,8 +15,7 @@
 @property (nonatomic) int y;
 @property (nonatomic) NSString *value;
 
--(BOOL) canMoveTo:(int) x and:(int)y;
--(BOOL) moveTo:(int)x and:(int)y;
+-(void) moveTo:(int)x and:(int)y;
 -(instancetype) initWithValue:(NSString*)value atX:(int)x andY:(int)y;
 -(instancetype) initEmptyAt:(int)x And:(int)y;
 

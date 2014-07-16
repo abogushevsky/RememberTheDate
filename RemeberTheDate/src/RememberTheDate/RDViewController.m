@@ -52,6 +52,17 @@ const int BUTTON_SIZE = 90;
 -(void) cellButtonClick: (RDCellButton *) sender
 {
     NSLog(@"Button pressed: %@", sender.value);
+    RDCell *movedCell = [self.gameModel moveCellFromX:sender.x y:sender.y];
+    sender.x = movedCell.x;
+    sender.y = movedCell.y;
+    
+    int additionalX = movedCell.x == 0 ? 0 : 5;
+    int additionalY = movedCell.y == 0 ? 0 : 5;
+    int buttonX = ((90 + additionalX) * movedCell.x) + 20;
+    int buttonY = 255 + ((90 + additionalY) * movedCell.y);
+    
+    [sender setFrame:CGRectMake(buttonX, buttonY, BUTTON_SIZE, BUTTON_SIZE)];
+    NSLog(@"Button moved to %d and %d", sender.x, sender.y);
 }
 
 - (IBAction)nextQuestion:(UIButton *)sender
@@ -88,8 +99,8 @@ const int BUTTON_SIZE = 90;
     button.frame = CGRectMake(buttonX, buttonY, BUTTON_SIZE, BUTTON_SIZE);
     button.value = cell.value;
     [button setBackgroundColor:[UIColor colorWithRed:168.0f/255.0f green:199.0f/255.0f blue:240.0f/255.0f alpha:1]];
-    button.x = 0;
-    button.y = 0;
+    button.x = cell.x;
+    button.y = cell.y;
     
     return button;
 }

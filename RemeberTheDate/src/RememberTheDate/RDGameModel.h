@@ -14,7 +14,9 @@
 @property (nonatomic, readonly) NSString *question;
 @property (nonatomic, readonly) NSString *answer;
 @property (nonatomic, readonly) NSArray *gameCells;
+@property (nonatomic, readonly) RDCell *emptyCell;
 
 -(instancetype) initWithQuestionId: (NSInteger) questionId;
+-(RDCell *) moveCellFromX: (int)x y:(int)y;
 
 @end

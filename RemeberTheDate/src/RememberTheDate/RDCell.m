@@ -15,14 +15,10 @@
 @synthesize y = _y;
 @synthesize value = _value;
 
--(BOOL) canMoveTo:(int) x and:(int)y
+-(void) moveTo:(int)x and:(int)y
 {
-    return NO;
-}
-
--(BOOL) moveTo:(int)x and:(int)y
-{
-    return NO;
+    self.x = x;
+    self.y = y;
 }
 
 -(instancetype) initWithValue:(NSString *)value atX:(int)x andY:(int)y
