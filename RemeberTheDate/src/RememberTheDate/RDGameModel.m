@@ -34,18 +34,28 @@
     
     _question = @"Дата начала Великой Отечественной Войны";
     _answer = @"22.06.1941";
+    NSMutableArray *datePartsArray = [NSMutableArray arrayWithObjects:@"2", @"2", @"0", @"6", @"1", @"9", @"4", @"1", nil];
+    
     _gameCells = [NSArray arrayWithObjects:
-                  [[RDCell alloc] initWithValue:@"2" atX:1 andY:0],
-                  [[RDCell alloc] initWithValue:@"2" atX:2 andY:0],
-                  [[RDCell alloc] initWithValue:@"0" atX:0 andY:1],
-                  [[RDCell alloc] initWithValue:@"6" atX:1 andY:1],
-                  [[RDCell alloc] initWithValue:@"1" atX:2 andY:1],
-                  [[RDCell alloc] initWithValue:@"9" atX:0 andY:2],
-                  [[RDCell alloc] initWithValue:@"4" atX:1 andY:2],
-                  [[RDCell alloc] initWithValue:@"1" atX:2 andY:2],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:1 andY:0],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:2 andY:0],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:0 andY:1],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:1 andY:1],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:2 andY:1],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:0 andY:2],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:1 andY:2],
+                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:2 andY:2],
                   nil];
     
     return self;
+}
+
+-(NSString *) getRandomDatePartFromPartsArray: (NSMutableArray *)array
+{
+    int rnd = rand() % array.count;
+    NSString *result = (NSString*)[array objectAtIndex:rnd];
+    [array removeObjectAtIndex:rnd];
+    return result;
 }
 
 @end
