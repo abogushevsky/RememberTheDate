@@ -13,5 +13,6 @@
 @property (nonatomic) int x;
 @property (nonatomic) int y;
 @property (nonatomic) NSString *value;
+@property (nonatomic) RDCell *cell;
 
 @end
