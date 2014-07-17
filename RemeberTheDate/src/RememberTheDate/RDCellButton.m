@@ -13,6 +13,19 @@
 @synthesize x = _x;
 @synthesize y = _y;
 @synthesize value;
+@synthesize cell = _cell;
+
+-(RDCell *) cell
+{
+    return _cell;
+}
+
+-(void) setCell: (RDCell *) newCell
+{
+    _cell = newCell;
+    [self setTitle:newCell.value forState:UIControlStateNormal];
+    //change position
+}
 
 -(NSString *) value
 {
