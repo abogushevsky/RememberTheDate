@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDCell.h"
 
 @interface RDCellButton : UIButton
 
