@@ -61,8 +61,8 @@
             if([self canMoveCell:movedCell toX:self.emptyCell.x y:self.emptyCell.y]){
                 [movedCell moveTo:self.emptyCell.x and:self.emptyCell.y];
                 [self.emptyCell moveTo:x and:y];
-                break;
             }
+            break;
         }
     }
     
