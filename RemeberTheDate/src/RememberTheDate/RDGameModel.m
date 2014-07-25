@@ -31,7 +31,7 @@
 {
     self = [self init];
     
-    NSLog(@"Init with question Id %ld", questionId);
+    NSLog(@"Init with question Id %d", questionId);
     
     _question = @"Дата начала Великой Отечественной Войны";
     _answer = @"22.06.1941";
