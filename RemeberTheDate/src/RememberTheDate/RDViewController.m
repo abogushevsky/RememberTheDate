@@ -36,8 +36,6 @@ const int BUTTON_SIZE = 90;
 	// Do any additional setup after loading the view, typically from a nib.
 
     [self nextQuestion:nil];
-    self.lblQuestion.text = self.gameModel.question;
-    self.lblAnswer.text = @"Ответ не верен";
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,10 +68,17 @@ const int BUTTON_SIZE = 90;
 {
     [self.gameModel nextQuestion];
     [self generateButtonsByModel];
+    
+    self.lblQuestion.text = self.gameModel.question;
+    self.lblAnswer.text = @"Ответ не верен";
 }
 
 -(void) generateButtonsByModel
 {
+    if(!self.cellButtons){
+        self.cellButtons = [[NSMutableArray alloc] initWithCapacity:8];
+    }
+    
     [self clearCurrentButtons];
     
     for(int i = 0; i < self.gameModel.gameCells.count; i++) {
@@ -86,7 +91,11 @@ const int BUTTON_SIZE = 90;
 
 -(void) clearCurrentButtons
 {
+    for(UIButton *button in self.cellButtons) {
+        [button removeFromSuperview];
+    }
     
+    [self.cellButtons removeAllObjects];
 }
 
 -(RDCellButton *) createButtonForCell: (RDCell *) cell

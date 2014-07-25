@@ -8,6 +8,7 @@
 
 #import "RDGameModel.h"
 #import "RDRandomQuestionSelector.h"
+#import "RDCommonHelpers.h"
 
 @interface RDGameModel()
 
@@ -34,7 +35,7 @@
 
 -(NSString *) answer
 {
-    _answer = [self getStringFromDate:self.questionObj.answer];
+    _answer = [RDCommonHelpers getStringFromDate:self.questionObj.answer removeFormatSymbols:YES];
     return _answer;
 }
 
@@ -76,14 +77,6 @@
     return movedCell;
 }
 
--(NSString *) getRandomDatePartFromPartsArray: (NSMutableArray *)array
-{
-    int rnd = rand() % array.count;
-    NSString *result = (NSString*)[array objectAtIndex:rnd];
-    [array removeObjectAtIndex:rnd];
-    return result;
-}
-
 -(BOOL) canMoveCell:(RDCell*)cell toX:(int)x y:(int)y
 {
     return (cell.x == x && abs(cell.y - y) <= 1) || (cell.y == y && abs(cell.x - x) <= 1);
@@ -105,14 +98,14 @@
     }
     
     _gameCells = [NSArray arrayWithObjects:
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:1 andY:0],
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:2 andY:0],
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:0 andY:1],
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:1 andY:1],
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:2 andY:1],
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:0 andY:2],
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:1 andY:2],
-                  [[RDCell alloc] initWithValue:[self getRandomDatePartFromPartsArray:datePartsArray] atX:2 andY:2],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:1 andY:0],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:2 andY:0],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:0 andY:1],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:1 andY:1],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:2 andY:1],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:0 andY:2],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:1 andY:2],
+                  [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:2 andY:2],
                   nil];
     _emptyCell = [[RDCell alloc] initEmptyAt:0 And:0];
 }
@@ -125,25 +118,7 @@
         return NO;
     }
     
-    return [_answer isEqualToString:[self getStringFromDate:self.questionObj.answer]];
-}
-
--(NSString *) getStringFromDate:(NSDate *) date
-{
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    NSString *format = [NSDateFormatter dateFormatFromTemplate:@"ddMMyyyy" options:0 locale:[NSLocale currentLocale]];
-    [formatter setDateFormat:format];
-    NSString *dateString = [formatter stringFromDate:date];
-    NSString *result = @"";
-    
-    NSError *error = nil;
-    NSRegularExpression *regEx = [NSRegularExpression regularExpressionWithPattern:@"\\d" options:0 error:&error];
-    
-    for(NSTextCheckingResult* match in [regEx matchesInString:dateString options:0 range:NSMakeRange(0, [dateString length])]){
-        result = [result stringByAppendingString:[dateString substringWithRange:[match range]]];
-    }
-    
-    return result;
+    return [_answer isEqualToString:[RDCommonHelpers getStringFromDate:self.questionObj.answer removeFormatSymbols:YES]];
 }
 
 @end
