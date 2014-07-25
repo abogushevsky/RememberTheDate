@@ -12,6 +12,9 @@
 		E630FC0019822EC7004F2AD5 /* RDRandomQuestionSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = E630FBFF19822EC7004F2AD5 /* RDRandomQuestionSelector.m */; };
 		E630FC0319822F16004F2AD5 /* RDQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = E630FC0219822F16004F2AD5 /* RDQuestion.m */; };
 		E6AE14F619828E9E00FDE59B /* RDCommonHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = E6AE14F519828E9E00FDE59B /* RDCommonHelpers.m */; };
+		E6AE14F819829AAD00FDE59B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AE14F719829AAD00FDE59B /* CoreData.framework */; };
+		E6AE14FB19829B6B00FDE59B /* QuestionsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6AE14F919829B6B00FDE59B /* QuestionsDataModel.xcdatamodeld */; };
+		E6AE14FE19829D5F00FDE59B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = E6AE14FD19829D5F00FDE59B /* Question.m */; };
 		E6DAB3771943482100B16FB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6DAB3761943482100B16FB9 /* Foundation.framework */; };
 		E6DAB3791943482100B16FB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6DAB3781943482100B16FB9 /* CoreGraphics.framework */; };
 		E6DAB37B1943482100B16FB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6DAB37A1943482100B16FB9 /* UIKit.framework */; };
@@ -52,6 +55,10 @@
 		E630FC0219822F16004F2AD5 /* RDQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDQuestion.m; sourceTree = "<group>"; };
 		E6AE14F419828E9E00FDE59B /* RDCommonHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCommonHelpers.h; sourceTree = "<group>"; };
 		E6AE14F519828E9E00FDE59B /* RDCommonHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCommonHelpers.m; sourceTree = "<group>"; };
+		E6AE14F719829AAD00FDE59B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E6AE14FA19829B6B00FDE59B /* QuestionsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuestionsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		E6AE14FC19829D5F00FDE59B /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		E6AE14FD19829D5F00FDE59B /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		E6DAB3731943482100B16FB9 /* RememberTheDate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberTheDate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DAB3761943482100B16FB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E6DAB3781943482100B16FB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6AE14F819829AAD00FDE59B /* CoreData.framework in Frameworks */,
 				E6DAB3791943482100B16FB9 /* CoreGraphics.framework in Frameworks */,
 				E6DAB37B1943482100B16FB9 /* UIKit.framework in Frameworks */,
 				E6DAB3771943482100B16FB9 /* Foundation.framework in Frameworks */,
@@ -114,6 +122,9 @@
 		E6DAB36A1943482100B16FB9 = {
 			isa = PBXGroup;
 			children = (
+				E6AE14F919829B6B00FDE59B /* QuestionsDataModel.xcdatamodeld */,
+				E6AE14FC19829D5F00FDE59B /* Question.h */,
+				E6AE14FD19829D5F00FDE59B /* Question.m */,
 				E6DAB37C1943482100B16FB9 /* RememberTheDate */,
 				E6DAB39E1943482200B16FB9 /* RememberTheDateTests */,
 				E6DAB3751943482100B16FB9 /* Frameworks */,
@@ -133,6 +144,7 @@
 		E6DAB3751943482100B16FB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E6AE14F719829AAD00FDE59B /* CoreData.framework */,
 				E6DAB3761943482100B16FB9 /* Foundation.framework */,
 				E6DAB3781943482100B16FB9 /* CoreGraphics.framework */,
 				E6DAB37A1943482100B16FB9 /* UIKit.framework */,
@@ -313,6 +325,8 @@
 				E6DAB3B419434E8800B16FB9 /* RDCell.m in Sources */,
 				E630FC0019822EC7004F2AD5 /* RDRandomQuestionSelector.m in Sources */,
 				E6DAB3901943482100B16FB9 /* RDViewController.m in Sources */,
+				E6AE14FB19829B6B00FDE59B /* QuestionsDataModel.xcdatamodeld in Sources */,
+				E6AE14FE19829D5F00FDE59B /* Question.m in Sources */,
 				E630FC0319822F16004F2AD5 /* RDQuestion.m in Sources */,
 				2CE6485B194DCA2E00ED6DBD /* RDMenuViewController.m in Sources */,
 			);
@@ -543,6 +557,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E6AE14F919829B6B00FDE59B /* QuestionsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E6AE14FA19829B6B00FDE59B /* QuestionsDataModel.xcdatamodel */,
+			);
+			currentVersion = E6AE14FA19829B6B00FDE59B /* QuestionsDataModel.xcdatamodel */;
+			path = QuestionsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E6DAB36B1943482100B16FB9 /* Project object */;
 }

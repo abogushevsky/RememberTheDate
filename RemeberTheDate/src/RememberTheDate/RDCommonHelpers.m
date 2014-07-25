@@ -42,4 +42,14 @@
     return result;
 }
 
++(NSDate *) createDateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    dateComponents.year = 1941;
+    dateComponents.month = 6;
+    dateComponents.day = 22;
+    return [calendar dateFromComponents:dateComponents];
+}
+
 @end

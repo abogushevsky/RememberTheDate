@@ -20,19 +20,11 @@
 -(NSArray *) getAllQuestions
 {
     NSString *question = @"Дата начала Великой Отечественной Войны";
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *dateComponents = [NSDateComponents new];
-    dateComponents.year = 1941;
-    dateComponents.month = 6;
-    dateComponents.day = 22;
-    NSDate *answer = [calendar dateFromComponents:dateComponents];
+    NSDate *answer = [RDCommonHelpers createDateWithYear:1941 month:6 day:22];
     RDQuestion *question1 = [[RDQuestion alloc] initWithQuestion:question andAnswer:answer];
     
     question = @"Дата оконачания Великой Отчественной Войны";
-    dateComponents.year = 1945;
-    dateComponents.month = 5;
-    dateComponents.day = 9;
-    answer = [calendar dateFromComponents:dateComponents];
+    answer = [RDCommonHelpers createDateWithYear:1945 month:5 day:9];
     RDQuestion *question2 = [[RDQuestion alloc] initWithQuestion:question andAnswer:answer];
     
     return [NSArray arrayWithObjects:question1, question2, nil];

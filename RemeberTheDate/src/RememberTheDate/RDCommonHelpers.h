@@ -16,4 +16,6 @@
 
 +(NSString *) getStringFromDate:(NSDate *) date removeFormatSymbols:(BOOL) removeFormatSymbols;
 
++(NSDate *) createDateWithYear:(NSInteger) year month:(NSInteger) month day:(NSInteger) day;
+
 @end

@@ -7,11 +7,33 @@
 //
 
 #import "RDAppDelegate.h"
+#import "Question.h"
+#import "RDCommonHelpers.h"
 
 @implementation RDAppDelegate
 
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /*Question *newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:self.managedObjectContext];
+    if(newQuestion) {
+        newQuestion.question = @"Дата начала Великой Отечественной Войны";
+        newQuestion.answer = [RDCommonHelpers createDateWithYear:1941 month:6 day:22];
+        newQuestion.isAnswered = NO;
+        
+        NSError *savingError = nil;
+        if([self.managedObjectContext save:&savingError]){
+            NSLog(@"Successfully saved context!");
+        } else{
+            NSLog(@"Failed to save the context. Error: %@", savingError);
+        }
+    } else {
+        NSLog(@"Failed to create new object!");
+    }*/
+    
     // Override point for customization after application launch.
     return YES;
 }
