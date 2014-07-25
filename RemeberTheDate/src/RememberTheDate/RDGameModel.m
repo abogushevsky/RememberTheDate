@@ -28,12 +28,14 @@
 
 -(NSString *) question
 {
-    return self.questionObj.question;
+    _question = self.questionObj.question;
+    return _question;
 }
 
 -(NSString *) answer
 {
-    return [self getStringFromDate:self.questionObj.answer];
+    _answer = [self getStringFromDate:self.questionObj.answer];
+    return _answer;
 }
 
 -(instancetype) init
@@ -115,12 +117,33 @@
     _emptyCell = [[RDCell alloc] initEmptyAt:0 And:0];
 }
 
+-(BOOL) checkGame
+{
+    //if empty cell is not the last cell then game is not
+    //finished yet so we don't need to check it
+    if(self.emptyCell.x != 2 && self.emptyCell.y != 2){
+        return NO;
+    }
+    
+    return [_answer isEqualToString:[self getStringFromDate:self.questionObj.answer]];
+}
+
 -(NSString *) getStringFromDate:(NSDate *) date
 {
     NSDateFormatter *formatter = [NSDateFormatter new];
     NSString *format = [NSDateFormatter dateFormatFromTemplate:@"ddMMyyyy" options:0 locale:[NSLocale currentLocale]];
     [formatter setDateFormat:format];
-    return [formatter stringFromDate:date];
+    NSString *dateString = [formatter stringFromDate:date];
+    NSString *result = @"";
+    
+    NSError *error = nil;
+    NSRegularExpression *regEx = [NSRegularExpression regularExpressionWithPattern:@"\\d" options:0 error:&error];
+    
+    for(NSTextCheckingResult* match in [regEx matchesInString:dateString options:0 range:NSMakeRange(0, [dateString length])]){
+        result = [result stringByAppendingString:[dateString substringWithRange:[match range]]];
+    }
+    
+    return result;
 }
 
 @end

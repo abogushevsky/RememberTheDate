@@ -21,5 +21,6 @@
 -(instancetype) initWithQuestionId: (NSInteger) questionId;
 -(RDCell *) moveCellFromX: (int)x y:(int)y;
 -(void) nextQuestion;
+-(BOOL) checkGame;
 
 @end

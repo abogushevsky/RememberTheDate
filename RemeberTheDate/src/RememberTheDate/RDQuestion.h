@@ -12,7 +12,10 @@
 
 @property (nonatomic, readonly) NSString *question;
 @property (nonatomic, readonly) NSDate *answer;
+@property (nonatomic) BOOL *isAnswered;
 
 -(instancetype) initWithQuestion:(NSString *) question andAnswer:(NSDate *) answer;
+
+-(instancetype) initWithQuestion:(NSString *)question andAnswer:(NSDate *)answer answered:(BOOL *)isAnswered;
 
 @end

@@ -37,7 +37,7 @@ const int BUTTON_SIZE = 90;
 
     [self nextQuestion:nil];
     self.lblQuestion.text = self.gameModel.question;
-    self.lblAnswer.text = self.gameModel.answer;
+    self.lblAnswer.text = @"Ответ не верен";
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +48,6 @@ const int BUTTON_SIZE = 90;
 
 -(void) cellButtonClick: (RDCellButton *) sender
 {
-    NSLog(@"Button pressed: %@", sender.value);
     RDCell *movedCell = [self.gameModel moveCellFromX:sender.x y:sender.y];
     sender.x = movedCell.x;
     sender.y = movedCell.y;
@@ -59,7 +58,12 @@ const int BUTTON_SIZE = 90;
     int buttonY = 255 + ((90 + additionalY) * movedCell.y);
     
     [sender setFrame:CGRectMake(buttonX, buttonY, BUTTON_SIZE, BUTTON_SIZE)];
-    NSLog(@"Button moved to %d and %d", sender.x, sender.y);
+    if([self.gameModel checkGame]) {
+        self.lblAnswer.text = @"Ответ верен!";
+    }
+    else {
+        NSLog(@"ответ не верен");
+    }
 }
 
 - (IBAction)nextQuestion:(UIButton *)sender
