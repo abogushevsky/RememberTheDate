@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RDQuestion.h"
 
 @interface RDRandomQuestionSelector : NSObject
+
+-(RDQuestion *) getRandomQuestion;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RDCell.h"
+#import "RDQuestion.h"
 
 @interface RDGameModel : NSObject
 
@@ -16,7 +17,9 @@
 @property (nonatomic, readonly) NSArray *gameCells;
 @property (nonatomic, readonly) RDCell *emptyCell;
 
+-(instancetype) initWithQuestion:(RDQuestion *) question;
 -(instancetype) initWithQuestionId: (NSInteger) questionId;
 -(RDCell *) moveCellFromX: (int)x y:(int)y;
+-(void) nextQuestion;
 
 @end

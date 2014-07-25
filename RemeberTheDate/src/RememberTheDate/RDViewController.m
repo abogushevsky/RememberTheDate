@@ -34,10 +34,7 @@ const int BUTTON_SIZE = 90;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    self.lblAnswer.text = self.gameModel.answer;
-    self.lblQuestion.text = self.gameModel.question;
-    self.cellButtons = [NSMutableArray arrayWithCapacity:9]; //there are always 9 non-empty cells
+
     [self nextQuestion:nil];
     self.lblQuestion.text = self.gameModel.question;
     self.lblAnswer.text = self.gameModel.answer;
@@ -67,8 +64,7 @@ const int BUTTON_SIZE = 90;
 
 - (IBAction)nextQuestion:(UIButton *)sender
 {
-    _gameModel = [[RDGameModel alloc] initWithQuestionId: 0];
-    
+    [self.gameModel nextQuestion];
     [self generateButtonsByModel];
 }
 
