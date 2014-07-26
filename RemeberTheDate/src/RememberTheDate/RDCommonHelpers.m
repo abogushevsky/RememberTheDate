@@ -46,9 +46,9 @@
 {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [NSDateComponents new];
-    dateComponents.year = 1941;
-    dateComponents.month = 6;
-    dateComponents.day = 22;
+    dateComponents.year = year;
+    dateComponents.month = month;
+    dateComponents.day = day;
     return [calendar dateFromComponents:dateComponents];
 }
 

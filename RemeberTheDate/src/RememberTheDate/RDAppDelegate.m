@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    Question *newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:self.managedObjectContext];
+    /*Question *newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:self.managedObjectContext];
     if(newQuestion) {
         newQuestion.question = @"Дата начала Великой Отечественной Войны";
         newQuestion.answer = [[RDCommonHelpers createDateWithYear:1941 month:6 day:22] timeIntervalSince1970];
@@ -32,7 +32,7 @@
         }
     } else {
         NSLog(@"Failed to create new object!");
-    }
+    }*/
     
     // Override point for customization after application launch.
     return YES;

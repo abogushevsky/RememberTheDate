@@ -114,11 +114,27 @@
 {
     //if empty cell is not the last cell then game is not
     //finished yet so we don't need to check it
-    if(self.emptyCell.x != 2 && self.emptyCell.y != 2){
+    if(self.emptyCell.x != 2 || self.emptyCell.y != 2){
         return NO;
     }
     
-    return [_answer isEqualToString:[RDCommonHelpers getStringFromDate:self.questionObj.answer removeFormatSymbols:YES]];
+    NSString *currentAnswer = @"";
+    for(int y = 0; y < 3; y++) {
+        for(int x = 0; x < 3; x++) {
+            if (x == 2 && y ==2) {
+                break;
+            }
+            
+            for(int i = 0; i < self.gameCells.count; i++) {
+                RDCell *currentCell = [self.gameCells objectAtIndex:i];
+                if(currentCell.x == x && currentCell.y == y){
+                    currentAnswer = [currentAnswer stringByAppendingString:currentCell.value];
+                }
+            }
+        }
+    }
+    
+    return [currentAnswer isEqualToString:[RDCommonHelpers getStringFromDate:self.questionObj.answer removeFormatSymbols:YES]];
 }
 
 @end
