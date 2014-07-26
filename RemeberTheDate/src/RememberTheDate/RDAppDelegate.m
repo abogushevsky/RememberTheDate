@@ -21,9 +21,8 @@
     Question *newQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:self.managedObjectContext];
     if(newQuestion) {
         newQuestion.question = @"Дата начала Великой Отечественной Войны";
-        newQuestion.answer = [RDCommonHelpers createDateWithYear:1941 month:6 day:22];
-        NSNumber *isAnswered = 0;
-        newQuestion.isAnswered = isAnswered;
+        newQuestion.answer = [[RDCommonHelpers createDateWithYear:1941 month:6 day:22] timeIntervalSince1970];
+        newQuestion.isAnswered = NO;
         
         NSError *savingError = nil;
         if([self.managedObjectContext save:&savingError]){
