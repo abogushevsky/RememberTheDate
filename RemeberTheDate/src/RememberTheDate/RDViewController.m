@@ -9,6 +9,7 @@
 #import "RDViewController.h"
 #import "RDGameModel.h"
 #import "RDCellButton.h"
+#import "RDAppDelegate.h"
 
 @interface RDViewController ()
 
@@ -75,6 +76,8 @@ const int BUTTON_SIZE = 90;
 
 -(void) generateButtonsByModel
 {
+    //RDAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     if(!self.cellButtons){
         self.cellButtons = [[NSMutableArray alloc] initWithCapacity:8];
     }
