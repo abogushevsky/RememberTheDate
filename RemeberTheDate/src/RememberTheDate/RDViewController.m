@@ -51,6 +51,7 @@ const int BUTTON_SIZE = 90;
     sender.x = movedCell.x;
     sender.y = movedCell.y;
     
+    //TODO: Move to new method
     int additionalX = movedCell.x == 0 ? 0 : 5;
     int additionalY = movedCell.y == 0 ? 0 : 5;
     int buttonX = ((90 + additionalX) * movedCell.x) + 20;
@@ -104,6 +105,7 @@ const int BUTTON_SIZE = 90;
 -(RDCellButton *) createButtonForCell: (RDCell *) cell
 {
     RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
+    //TODO: Move to new method
     int additionalX = cell.x == 0 ? 0 : 5;
     int additionalY = cell.y == 0 ? 0 : 5;
     int buttonX = ((90 + additionalX) * cell.x) + 20;
