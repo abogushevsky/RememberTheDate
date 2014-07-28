@@ -107,6 +107,7 @@
                   [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:1 andY:2],
                   [[RDCell alloc] initWithValue:[RDCommonHelpers popRandomItemFromMutable:datePartsArray] atX:2 andY:2],
                   nil];
+                  
     _emptyCell = [[RDCell alloc] initEmptyAt:0 And:0];
 }
 
@@ -122,13 +123,13 @@
     NSString *currentAnswer = @"";
     for(int y = 0; y < 3; y++) {
         for(int x = 0; x < 3; x++) {
-            if (x == 2 && y ==2) {
+            if (x == 2 && y == 2) {
                 break;
             }
             
             for(int i = 0; i < self.gameCells.count; i++) {
                 RDCell *currentCell = [self.gameCells objectAtIndex:i];
-                if(currentCell.x == x && currentCell.y == y){
+                if(currentCell.x == x && currentCell.y == y) {
                     currentAnswer = [currentAnswer stringByAppendingString:currentCell.value];
                 }
             }
