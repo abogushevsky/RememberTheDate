@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[RDGameModel canMoveCell:toX:y:]:RDGameModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.x">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RDViewController createButtonForCell:]:RDViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "IS_IPHONE_5">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

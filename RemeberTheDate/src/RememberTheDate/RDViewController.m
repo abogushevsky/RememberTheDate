@@ -24,7 +24,7 @@
 const int BUTTON_SIZE_IPHONE_5 = 90;
 const int BUTTON_SIZE_IPHONE_OLD = 70;
 const int BUTTON_MARGIN_IPHONE_5 = 20;
-const int BUTTON_MARGIN_IPHONE_OLD = 20;
+const int BUTTON_MARGIN_IPHONE_OLD = 25;
 const int TOP_IPHONE_5 = 255;
 const int TOP_IPHONE_OLD = 255;
 
