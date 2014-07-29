@@ -24,9 +24,9 @@
 const int BUTTON_SIZE_IPHONE_5 = 90;
 const int BUTTON_SIZE_IPHONE_OLD = 70;
 const int BUTTON_MARGIN_IPHONE_5 = 20;
-const int BUTTON_MARGIN_IPHONE_OLD = 15;
+const int BUTTON_MARGIN_IPHONE_OLD = 20;
 const int TOP_IPHONE_5 = 255;
-const int TOP_IPHONE_OLD = 200;
+const int TOP_IPHONE_OLD = 255;
 
 -(RDGameModel *) gameModel
 {
@@ -58,9 +58,10 @@ const int TOP_IPHONE_OLD = 200;
     sender.y = movedCell.y;
     
     //TODO: Move to new method
-    int buttonSize = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_SIZE_IPHONE_5 : BUTTON_SIZE_IPHONE_OLD;
-    int buttonMargin = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_MARGIN_IPHONE_5 : BUTTON_MARGIN_IPHONE_OLD;
-    int top = IS_IPHONE_5 || IS_IPOD_5 ? TOP_IPHONE_5 : TOP_IPHONE_OLD;
+    BOOL isIphone5 = [[UIScreen mainScreen] bounds].size.height == 568;
+    int buttonSize = isIphone5 ? BUTTON_SIZE_IPHONE_5 : BUTTON_SIZE_IPHONE_OLD;
+    int buttonMargin = isIphone5 ? BUTTON_MARGIN_IPHONE_5 : BUTTON_MARGIN_IPHONE_OLD;
+    int top = isIphone5 ? TOP_IPHONE_5 : TOP_IPHONE_OLD;
     int additionalX = movedCell.x == 0 ? 0 : 5;
     int additionalY = movedCell.y == 0 ? 0 : 5;
     int buttonX = ((buttonSize + additionalX) * movedCell.x) + buttonMargin;
@@ -115,9 +116,10 @@ const int TOP_IPHONE_OLD = 200;
 {
     RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
     //TODO: Move to new method
-    int buttonSize = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_SIZE_IPHONE_5 : BUTTON_SIZE_IPHONE_OLD;
-    int buttonMargin = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_MARGIN_IPHONE_5 : BUTTON_MARGIN_IPHONE_OLD;
-    int top = IS_IPHONE_5 || IS_IPOD_5 ? TOP_IPHONE_5 : TOP_IPHONE_OLD;
+    BOOL isIphone5 = [[UIScreen mainScreen] bounds].size.height == 568;
+    int buttonSize = isIphone5 ? BUTTON_SIZE_IPHONE_5 : BUTTON_SIZE_IPHONE_OLD;
+    int buttonMargin = isIphone5 ? BUTTON_MARGIN_IPHONE_5 : BUTTON_MARGIN_IPHONE_OLD;
+    int top = isIphone5 ? TOP_IPHONE_5 : TOP_IPHONE_OLD;
     int additionalX = cell.x == 0 ? 0 : 5;
     int additionalY = cell.y == 0 ? 0 : 5;
     int buttonX = ((buttonSize + additionalX) * cell.x) + buttonMargin;
