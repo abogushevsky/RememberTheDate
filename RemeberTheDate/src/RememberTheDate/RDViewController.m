@@ -10,6 +10,7 @@
 #import "RDGameModel.h"
 #import "RDCellButton.h"
 #import "RDAppDelegate.h"
+#import "RDCommonHelpers.h"
 
 @interface RDViewController ()
 
@@ -20,7 +21,12 @@
 
 @implementation RDViewController
 
-const int BUTTON_SIZE = 90;
+const int BUTTON_SIZE_IPHONE_5 = 90;
+const int BUTTON_SIZE_IPHONE_OLD = 70;
+const int BUTTON_MARGIN_IPHONE_5 = 20;
+const int BUTTON_MARGIN_IPHONE_OLD = 15;
+const int TOP_IPHONE_5 = 255;
+const int TOP_IPHONE_OLD = 200;
 
 -(RDGameModel *) gameModel
 {
@@ -52,12 +58,15 @@ const int BUTTON_SIZE = 90;
     sender.y = movedCell.y;
     
     //TODO: Move to new method
+    int buttonSize = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_SIZE_IPHONE_5 : BUTTON_SIZE_IPHONE_OLD;
+    int buttonMargin = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_MARGIN_IPHONE_5 : BUTTON_MARGIN_IPHONE_OLD;
+    int top = IS_IPHONE_5 || IS_IPOD_5 ? TOP_IPHONE_5 : TOP_IPHONE_OLD;
     int additionalX = movedCell.x == 0 ? 0 : 5;
     int additionalY = movedCell.y == 0 ? 0 : 5;
-    int buttonX = ((90 + additionalX) * movedCell.x) + 20;
-    int buttonY = 255 + ((90 + additionalY) * movedCell.y);
+    int buttonX = ((buttonSize + additionalX) * movedCell.x) + buttonMargin;
+    int buttonY = top + ((buttonSize + additionalY) * movedCell.y);
     
-    [sender setFrame:CGRectMake(buttonX, buttonY, BUTTON_SIZE, BUTTON_SIZE)];
+    [sender setFrame:CGRectMake(buttonX, buttonY, buttonSize, buttonSize)];
     if([self.gameModel checkGame]) {
         self.lblAnswer.text = @"Ответ верен!";
     }
@@ -106,11 +115,14 @@ const int BUTTON_SIZE = 90;
 {
     RDCellButton *button = [RDCellButton buttonWithType:UIButtonTypeSystem];
     //TODO: Move to new method
+    int buttonSize = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_SIZE_IPHONE_5 : BUTTON_SIZE_IPHONE_OLD;
+    int buttonMargin = IS_IPHONE_5 || IS_IPOD_5 ? BUTTON_MARGIN_IPHONE_5 : BUTTON_MARGIN_IPHONE_OLD;
+    int top = IS_IPHONE_5 || IS_IPOD_5 ? TOP_IPHONE_5 : TOP_IPHONE_OLD;
     int additionalX = cell.x == 0 ? 0 : 5;
     int additionalY = cell.y == 0 ? 0 : 5;
-    int buttonX = ((90 + additionalX) * cell.x) + 20;
-    int buttonY = 255 + ((90 + additionalY) * cell.y);
-    button.frame = CGRectMake(buttonX, buttonY, BUTTON_SIZE, BUTTON_SIZE);
+    int buttonX = ((buttonSize + additionalX) * cell.x) + buttonMargin;
+    int buttonY = top + ((buttonSize + additionalY) * cell.y);
+    button.frame = CGRectMake(buttonX, buttonY, buttonSize, buttonSize);
     button.value = cell.value;
     [button setBackgroundColor:[UIColor colorWithRed:168.0f/255.0f green:199.0f/255.0f blue:240.0f/255.0f alpha:1]];
     button.x = cell.x;
