@@ -28,6 +28,9 @@ const int BUTTON_MARGIN_IPHONE_OLD = 25;
 const int TOP_IPHONE_5 = 255;
 const int TOP_IPHONE_OLD = 255;
 
+// http://kevinyavno.com/blog/?p=141
+// http://stackoverflow.com/questions/12739313/separate-storyboards-for-iphone-5-and-iphone-4s
+
 -(RDGameModel *) gameModel
 {
     if(!_gameModel) {
